@@ -15,12 +15,10 @@ def create_jwt_token(
     *,
     jwt_content: Dict[str, str],
     secret_key: str,
-    expires_delta: timedelta,
 ) -> str:
     to_encode = jwt_content.copy()
     to_encode.update()
-    expire = datetime.utcnow() + expires_delta
-    to_encode.update({"exp": expire, "sub": JWT_SUBJECT})
+    to_encode.update({"sub": JWT_SUBJECT})
     return jwt.encode(to_encode, secret_key, algorithm=ALGORITHM)
 
 
@@ -28,7 +26,6 @@ def create_access_token_for_user(user: User, secret_key: str) -> str:
     return create_jwt_token(
         jwt_content=user.dict(),
         secret_key=secret_key,
-        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
     )
 
 
