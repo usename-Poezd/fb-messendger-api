@@ -3,7 +3,7 @@ FROM python:3.7
 WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --upgrade -r /code/requirements.txt
 
 COPY . /code
 COPY ./pkg/fbchat/_state.py /usr/local/lib/python3.7/site-packages/fbchat/_state.py
