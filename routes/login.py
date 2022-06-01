@@ -38,5 +38,6 @@ def login(
             uid=client.uid,
             token=token
         )
-    except:
+    except Exception as e:
+        print(e)
         raise HTTPException(status_code=401, detail="Not authorized")
