@@ -1,7 +1,7 @@
 ## FB Messenger Service
 
 ## Для установки вам надо
-- Переименовать ``.env.example`` в ``env``
+- Переименовать ``.env.example`` в ``.env``
 - Запустить ``docker-compose up -d``
 
 ## Документация
