@@ -30,7 +30,7 @@ def send(
     client = messenger.get_client(user.email, user.password, user.cookies)
     try:
         message = client.send(Message(text=req.message), thread_id=req.thread_id)
-        return SendResponse(message)
+        return SendResponse(msg_id=message)
     except:
         raise HTTPException(status_code=422, detail={"msg": "not found thread"})
     
